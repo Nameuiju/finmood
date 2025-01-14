@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>FinMood - Google Data</title>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="https://postfiles.pstatic.net/MjAyNTAxMTJfOTYg/MDAxNzM2NjIxMTgyMzUx.7B-GVu9-gx7kUguu9131GMtCu-E6OnTU3qfxG3Hmutog.RD1DZ30FdFx2kgZJTcJKu7Xp7f9JHcIaP08A8nK22oIg.PNG/7214acb7-8370-46a0-a841-b4d72393085b-removebg-preview_(1).png?type=w773" />
+        <!-- Core theme CSS -->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            /* 사각형 높이 증가 및 글자 크기 조정 */
+            .ranking-box {
+                min-height: 500px; /* 높이를 15개 항목이 들어갈 수 있도록 증가 */
+                padding: 20px;
+            }
+
+            .ranking-box h2 {
+                font-size: 1.25rem; /* 글자 크기 살짝 축소 */
+            }
+
+            /* 테이블 셀 스타일 */
+            .table tbody tr td {
+                vertical-align: middle; /* 텍스트와 아이콘을 가운데 정렬 */
+            }
+
+            /* 회사 이름 열 스타일 */
+            .table .company-name {
+                text-align: center; /* 가운데 정렬 */
+                background-color: #f8f9fa; /* 밝은 회색 배경 */
+                padding: 10px;
+            }
+
+            /* 검색 강도 열 스타일 */
+            .table .search-intensity {
+                text-align: center; /* 가운데 정렬 */
+            }
+
+            /* 테이블 헤더 스타일 */
+            .table thead th {
+                background-color: #f0f0f0; /* 더 옅은 배경색 */
+                color: #333; /* 텍스트 색상 */
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Responsive navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-lg-5">
+                <a class="navbar-brand" href="Google.html">FinMood</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Google</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Youtube.html">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="custom-logo">
+            <img src="https://postfiles.pstatic.net/MjAyNTAxMTBfMjkg/MDAxNzM2NDQ1NTA2Njgz.2TgCRXyj6xYpUKAVRkCSr0fVaALXp904wzc_l7tM4Swg.-zdZMKFpB-jIDev21pE8-xAardf8957_RPQb6zx63QUg.PNG/7214acb7-8370-46a0-a841-b4d72393085b-removebg-preview_(1).png?type=w773" alt="FinMood Logo">
+        </div>
+        
+        <!-- Header -->
+        <header class="py-5">
+            <div class="container px-lg-5">
+                
+                <div class="info-message text-center">
+                    <p>Click on the coin name <span class="break-line">to view its details on CoinGecko.</span></p>
+                </div>
+                
+                <!-- 1-Day Ranking -->
+                <div class="p-4 p-lg-5 bg-light rounded-3 text-center ranking-box">
+                    <h2 class="fs-4 fw-bold mb-3">1-Day Google Search Volume Rankings</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Coin</th>
+                                <th>Relative Search Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr>
+            <td>1</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/chainlink" target="_blank" style="text-decoration: none; color: inherit;">
+                    Chainlink (LINK)
+                </a>
+            </td>
+            <td>12386</td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/solana" target="_blank" style="text-decoration: none; color: inherit;">
+                    Solana (SOL)
+                </a>
+            </td>
+            <td>11816</td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/cardano" target="_blank" style="text-decoration: none; color: inherit;">
+                    Cardano (ADA)
+                </a>
+            </td>
+            <td>10923</td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/xrp" target="_blank" style="text-decoration: none; color: inherit;">
+                    XRP (XRP)
+                </a>
+            </td>
+            <td>10504</td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/toncoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Toncoin (TON)
+                </a>
+            </td>
+            <td>9168</td>
+        </tr>
+        
+        <tr>
+            <td>6</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/dogecoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Dogecoin (DOGE)
+                </a>
+            </td>
+            <td>8448</td>
+        </tr>
+        
+        <tr>
+            <td>7</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/tron" target="_blank" style="text-decoration: none; color: inherit;">
+                    TRON (TRX)
+                </a>
+            </td>
+            <td>7602</td>
+        </tr>
+        
+        <tr>
+            <td>8</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Bitcoin (BTC)
+                </a>
+            </td>
+            <td>7548</td>
+        </tr>
+        
+        <tr>
+            <td>9</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/bnb" target="_blank" style="text-decoration: none; color: inherit;">
+                    BNB (BNB)
+                </a>
+            </td>
+            <td>5091</td>
+        </tr>
+        
+        <tr>
+            <td>10</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/sui" target="_blank" style="text-decoration: none; color: inherit;">
+                    Sui (SUI)
+                </a>
+            </td>
+            <td>4330</td>
+        </tr>
+         <!-- Python 스크립트에서 이 자리표시자를 실제 테이블 데이터로 대체 -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                <!-- 7-Day Ranking -->
+                <div class="p-4 p-lg-5 bg-light rounded-3 text-center ranking-box">
+                    <h2 class="fs-4 fw-bold mb-3">7-Day Google Search Volume Rankings</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Coin</th>
+                                <th>Relative Search Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr>
+            <td>1</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/solana" target="_blank" style="text-decoration: none; color: inherit;">
+                    Solana (SOL)
+                </a>
+            </td>
+            <td>13643</td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/toncoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Toncoin (TON)
+                </a>
+            </td>
+            <td>13353</td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/dogecoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Dogecoin (DOGE)
+                </a>
+            </td>
+            <td>11615</td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/sui" target="_blank" style="text-decoration: none; color: inherit;">
+                    Sui (SUI)
+                </a>
+            </td>
+            <td>11373</td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/tron" target="_blank" style="text-decoration: none; color: inherit;">
+                    TRON (TRX)
+                </a>
+            </td>
+            <td>11348</td>
+        </tr>
+        
+        <tr>
+            <td>6</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/cardano" target="_blank" style="text-decoration: none; color: inherit;">
+                    Cardano (ADA)
+                </a>
+            </td>
+            <td>10534</td>
+        </tr>
+        
+        <tr>
+            <td>7</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/xrp" target="_blank" style="text-decoration: none; color: inherit;">
+                    XRP (XRP)
+                </a>
+            </td>
+            <td>10229</td>
+        </tr>
+        
+        <tr>
+            <td>8</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Bitcoin (BTC)
+                </a>
+            </td>
+            <td>8232</td>
+        </tr>
+        
+        <tr>
+            <td>9</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/bnb" target="_blank" style="text-decoration: none; color: inherit;">
+                    BNB (BNB)
+                </a>
+            </td>
+            <td>5576</td>
+        </tr>
+        
+        <tr>
+            <td>10</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/shiba-inu" target="_blank" style="text-decoration: none; color: inherit;">
+                    Shiba Inu (SHIB)
+                </a>
+            </td>
+            <td>5570</td>
+        </tr>
+         <!-- Python 스크립트에서 이 자리표시자를 실제 테이블 데이터로 대체 -->
+                        </tbody>                        
+                    </table>
+                </div>
+                
+                <!-- 30-Day Ranking -->
+                <div class="p-4 p-lg-5 bg-light rounded-3 text-center ranking-box">
+                    <h2 class="fs-4 fw-bold mb-3">30-Day Google Search Volume Rankings</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Coin</th>
+                                <th>Relative Search Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr>
+            <td>1</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/toncoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Toncoin (TON)
+                </a>
+            </td>
+            <td>2824</td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/tron" target="_blank" style="text-decoration: none; color: inherit;">
+                    TRON (TRX)
+                </a>
+            </td>
+            <td>2560</td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/cardano" target="_blank" style="text-decoration: none; color: inherit;">
+                    Cardano (ADA)
+                </a>
+            </td>
+            <td>2248</td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/sui" target="_blank" style="text-decoration: none; color: inherit;">
+                    Sui (SUI)
+                </a>
+            </td>
+            <td>2247</td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/shiba-inu" target="_blank" style="text-decoration: none; color: inherit;">
+                    Shiba Inu (SHIB)
+                </a>
+            </td>
+            <td>2085</td>
+        </tr>
+        
+        <tr>
+            <td>6</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Bitcoin (BTC)
+                </a>
+            </td>
+            <td>2043</td>
+        </tr>
+        
+        <tr>
+            <td>7</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/xrp" target="_blank" style="text-decoration: none; color: inherit;">
+                    XRP (XRP)
+                </a>
+            </td>
+            <td>1781</td>
+        </tr>
+        
+        <tr>
+            <td>8</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/dogecoin" target="_blank" style="text-decoration: none; color: inherit;">
+                    Dogecoin (DOGE)
+                </a>
+            </td>
+            <td>1614</td>
+        </tr>
+        
+        <tr>
+            <td>9</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/solana" target="_blank" style="text-decoration: none; color: inherit;">
+                    Solana (SOL)
+                </a>
+            </td>
+            <td>618</td>
+        </tr>
+        
+        <tr>
+            <td>10</td>
+            <td>
+                <a href="https://www.coingecko.com/en/coins/stellar" target="_blank" style="text-decoration: none; color: inherit;">
+                    Stellar (XLM)
+                </a>
+            </td>
+            <td>428</td>
+        </tr>
+         <!-- Python 스크립트에서 이 자리표시자를 실제 테이블 데이터로 대체 -->
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Footer -->
+        <footer class="bg-dark py-4">
+            <div class="container">
+                <p class="text-center text-white">© FinMood 2025. Empowering Investment Decisions.</p>
+            </div>
+        </footer>
+        
+        <!-- Bootstrap core JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS -->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
