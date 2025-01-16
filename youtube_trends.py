@@ -33,9 +33,27 @@ def fetch_top_coins_with_symbols(limit=20):
         'Symbol': [coin['symbol'].upper() for coin in data]
     })
 
+def apply_exclusion_filter(keywords, exclusion_terms):
+    """
+    검색 키워드에 제외 조건을 추가합니다.
+    Parameters:
+        keywords (list): 검색할 키워드 리스트.
+        exclusion_terms (dict): 키워드별 제외 조건.
+    Returns:
+        list: 제외 조건이 적용된 키워드 리스트.
+    """
+    filtered_keywords = []
+    for keyword in keywords:
+        exclusions = exclusion_terms.get(keyword, "")
+        if exclusions:
+            filtered_keywords.append(f"{keyword} -{exclusions}")
+        else:
+            filtered_keywords.append(keyword)
+    return filtered_keywords
+
 def fetch_youtube_trends_with_progress(keywords, timeframe, batch_size=2, delay=60):
     """
-    Google Trends에서 YouTube 검색 데이터를 가져옵니다.
+    YouTube에서 키워드 검색 데이터를 가져옵니다.
     진행 상황과 예상 완료 시간을 콘솔에 출력합니다.
     Parameters:
         keywords (list): 검색할 키워드 리스트.
@@ -86,14 +104,24 @@ if __name__ == "__main__":
     top_coins_df = fetch_top_coins_with_symbols(limit=20)
     top_names = top_coins_df['Name'].tolist()  # 코인 이름 리스트 추출
 
-    if top_names:
+    # 제외 조건 정의
+    exclusion_terms = {
+        "BNB": "bed breakfast",
+        "USDC": "usd coin",
+        "TRON": "movie",
+    }
+
+    # 제외 조건을 적용한 키워드 생성
+    filtered_keywords = apply_exclusion_filter(top_names, exclusion_terms)
+
+    if filtered_keywords:
         # 각각의 기간별 데이터 수집
         print("\nFetching 1-day YouTube Trends data...")
-        trends_1day = fetch_youtube_trends_with_progress(top_names, 'now 1-d', batch_size=2, delay=60)
+        trends_1day = fetch_youtube_trends_with_progress(filtered_keywords, 'now 1-d', batch_size=2, delay=60)
         print("\nFetching 7-day YouTube Trends data...")
-        trends_7days = fetch_youtube_trends_with_progress(top_names, 'now 7-d', batch_size=2, delay=60)
+        trends_7days = fetch_youtube_trends_with_progress(filtered_keywords, 'now 7-d', batch_size=2, delay=60)
         print("\nFetching 30-day YouTube Trends data...")
-        trends_30days = fetch_youtube_trends_with_progress(top_names, 'today 1-m', batch_size=2, delay=60)
+        trends_30days = fetch_youtube_trends_with_progress(filtered_keywords, 'today 1-m', batch_size=2, delay=60)
 
         # 각각의 데이터프레임 정리
         if not trends_1day.empty:
@@ -130,6 +158,3 @@ if __name__ == "__main__":
     end_time = datetime.datetime.now()  # 종료 시간 기록
     elapsed_time = end_time - start_time  # 소요 시간 계산
     print(f"\nTotal elapsed time: {elapsed_time}")
-
-
-    
