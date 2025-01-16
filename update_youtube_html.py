@@ -3,17 +3,11 @@ import pandas as pd
 def generate_table_html(dataframe, search_volume_column):
     """
     데이터프레임을 HTML 테이블 형식으로 변환합니다.
-    Parameters:
-        dataframe (pd.DataFrame): 변환할 데이터프레임.
-        search_volume_column (str): 검색량 열 이름.
-    Returns:
-        str: HTML 테이블 문자열.
     """
     table_html = ""
     base_url = "https://www.coingecko.com/en/coins/"
     
     for idx, row in dataframe.iterrows():
-        # CoinGecko URL 생성
         coin_url = base_url + row['Name'].replace(" ", "-").lower()
         table_html += f"""
         <tr>
@@ -50,12 +44,10 @@ def update_youtube_html():
         updated_html = html_content.replace(
             "<!-- {1day_table} -->",
             f"<!-- {{1day_table}} -->\n{table_1day}"
-        )
-        updated_html = updated_html.replace(
+        ).replace(
             "<!-- {7day_table} -->",
             f"<!-- {{7day_table}} -->\n{table_7days}"
-        )
-        updated_html = updated_html.replace(
+        ).replace(
             "<!-- {30day_table} -->",
             f"<!-- {{30day_table}} -->\n{table_30days}"
         )
