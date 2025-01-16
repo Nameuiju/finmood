@@ -59,7 +59,7 @@ def fetch_google_trends_with_progress(keywords, timeframe, batch_size=2, delay=6
 
             if not data.empty:
                 batch_data = data[batch].sum().reset_index()
-                batch_data.columns = ['Symbol', 'Search Volume']
+                batch_data.columns = ['Name', 'Search Volume']  # Name 컬럼으로 변경
                 trends_data.append(batch_data)
         except Exception as e:
             print(f"Error processing batch {batch}: {e}")
@@ -76,7 +76,7 @@ def fetch_google_trends_with_progress(keywords, timeframe, batch_size=2, delay=6
     if trends_data:
         return pd.concat(trends_data).sort_values(by='Search Volume', ascending=False).reset_index(drop=True)
     else:
-        return pd.DataFrame(columns=['Symbol', 'Search Volume'])
+        return pd.DataFrame(columns=['Name', 'Search Volume'])
 
 if __name__ == "__main__":
     start_time = datetime.datetime.now()  # 시작 시간 기록
@@ -84,30 +84,30 @@ if __name__ == "__main__":
     # 상위 20개 코인 이름과 약자 가져오기
     print("Fetching top 20 cryptocurrencies by market cap...")
     top_coins_df = fetch_top_coins_with_symbols(limit=20)
-    top_symbols = top_coins_df['Symbol'].tolist()  # 약자 리스트 추출
+    top_names = top_coins_df['Name'].tolist()  # 코인 이름 리스트 추출
 
-    if top_symbols:
+    if top_names:
         # 각각의 기간별 데이터 수집
         print("\nFetching 1-day Google Trends data...")
-        trends_1day = fetch_google_trends_with_progress(top_symbols, 'now 1-d', batch_size=2, delay=60)
+        trends_1day = fetch_google_trends_with_progress(top_names, 'now 1-d', batch_size=2, delay=60)
         print("\nFetching 7-day Google Trends data...")
-        trends_7days = fetch_google_trends_with_progress(top_symbols, 'now 7-d', batch_size=2, delay=60)
+        trends_7days = fetch_google_trends_with_progress(top_names, 'now 7-d', batch_size=2, delay=60)
         print("\nFetching 30-day Google Trends data...")
-        trends_30days = fetch_google_trends_with_progress(top_symbols, 'today 1-m', batch_size=2, delay=60)
+        trends_30days = fetch_google_trends_with_progress(top_names, 'today 1-m', batch_size=2, delay=60)
 
         # 각각의 데이터프레임 정리
         if not trends_1day.empty:
-            trends_1day = trends_1day.merge(top_coins_df, on='Symbol')
+            trends_1day = trends_1day.merge(top_coins_df, on='Name')  # Name 컬럼으로 병합
             trends_1day = trends_1day[['Name', 'Symbol', 'Search Volume']].head(10)
             trends_1day.rename(columns={'Search Volume': 'Search Volume (1d)'}, inplace=True)
 
         if not trends_7days.empty:
-            trends_7days = trends_7days.merge(top_coins_df, on='Symbol')
+            trends_7days = trends_7days.merge(top_coins_df, on='Name')  # Name 컬럼으로 병합
             trends_7days = trends_7days[['Name', 'Symbol', 'Search Volume']].head(10)
             trends_7days.rename(columns={'Search Volume': 'Search Volume (7d)'}, inplace=True)
 
         if not trends_30days.empty:
-            trends_30days = trends_30days.merge(top_coins_df, on='Symbol')
+            trends_30days = trends_30days.merge(top_coins_df, on='Name')  # Name 컬럼으로 병합
             trends_30days = trends_30days[['Name', 'Symbol', 'Search Volume']].head(10)
             trends_30days.rename(columns={'Search Volume': 'Search Volume (30d)'}, inplace=True)
 

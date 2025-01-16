@@ -42,20 +42,29 @@ def update_youtube_html():
         table_7days = generate_table_html(trends_7days, "Search Volume (7d)")
         table_30days = generate_table_html(trends_30days, "Search Volume (30d)")
 
-        # 3. 기존 index.html 읽기
-        with open("Youtube.html", "r", encoding="utf-8") as file:
+        # 3. 기존 YouTube.html 읽기
+        with open("YouTube.html", "r", encoding="utf-8") as file:
             html_content = file.read()
 
-        # 4. 자리표시자를 HTML 테이블로 대체
-        updated_html = html_content.replace("{1day_table}", table_1day)
-        updated_html = updated_html.replace("{7days_table}", table_7days)
-        updated_html = updated_html.replace("{30days_table}", table_30days)
+        # 4. 자리표시자를 HTML 테이블로 대체 (자리표시자는 유지)
+        updated_html = html_content.replace(
+            "<!-- {1day_table} -->",
+            f"<!-- {{1day_table}} -->\n{table_1day}"
+        )
+        updated_html = updated_html.replace(
+            "<!-- {7day_table} -->",
+            f"<!-- {{7day_table}} -->\n{table_7days}"
+        )
+        updated_html = updated_html.replace(
+            "<!-- {30day_table} -->",
+            f"<!-- {{30day_table}} -->\n{table_30days}"
+        )
 
         # 5. 업데이트된 HTML 파일 저장
-        with open("Youtube.html", "w", encoding="utf-8") as file:
+        with open("YouTube.html", "w", encoding="utf-8") as file:
             file.write(updated_html)
 
-        print("Youtube.html has been updated with the latest data!")
+        print("YouTube.html has been updated with the latest data!")
 
     except FileNotFoundError as e:
         print(f"Error: {e}. Ensure the required CSV files and HTML file are in the correct location.")
